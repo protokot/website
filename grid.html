@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            :root{
+                box-sizing: inherit;
+            }
+            *, 
+            *::after,
+            *::before{
+                padding:0;
+                margin: 0;
+                box-sizing: border-box;
+                font-family: Georgia, 'Times New Roman', Times, Courier, monospace;
+            }
+            .debutton{
+                border: none;
+                background-color: transparent;
+            }
+
+
+            .container{
+                display: grid;
+                background-color: #b9b9b9;
+                /* position: relative; */
+
+            }
+            nav{
+                display:flex;
+                background-color: darksalmon;
+                align-items: center;
+            }
+            .nav-burger-button{
+
+                font-size: 1rem;
+                font-weight: bold;
+                padding: 0.5rem; 
+
+            }
+            .nav-menu{
+                display: none;
+                text-indent: 0;
+                list-style: none;
+                
+                background-color: white;
+                position: absolute;
+                opacity: 0;
+                
+
+            }
+            .nav-burger-container:focus-within .nav-menu, 
+            .nav-burger-container:hover .nav-menu{
+                display: block;
+                top: 1.5rem;
+                opacity: 1;
+                z-index: 1;
+                transition: all 1s ease-in-out;
+            }
+            .nav-menu li a{
+                text-decoration: none;
+                color: inherit;
+                padding: 1rem;
+            }
+            .nav-menu li{
+                padding-top:0.5rem;
+                padding-bottom:0.5rem;
+            }
+            .nav-menu li:hover{
+                color:white;
+                background-color:darksalmon ;
+            }
+
+
+            .scrolling{
+                height: auto;
+                min-height: calc(100vh - 2rem);
+                overflow-y: auto;
+                overflow-x: hidden;
+                position: relative;
+                background-image: url("coffee.jpg");
+                background-attachment: fixed;
+                background-origin: center;
+                background-size: cover;
+            }
+            .scrolling__text{
+                background-color: white;
+                margin: auto;
+                width: 75%;
+                margin-top: 1rem;
+                padding: 2rem;
+                font-family: Arial, Helvetica, sans-serif;
+                border-left: 3px #be8021 solid;
+            }
+            .scrolling__text::first-letter{
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #be8021;
+            }
+            h2{
+                color: #b9b9b9;
+                text-shadow: white 1px 1px, white -1px -1px;
+                position:absolute;
+                top: 35%;
+                left:50%;
+                transform: translateX(-50%);
+            }
+
+            .grid-test-container{
+                display:grid;
+                margin: auto;
+                margin-top: 3rem;
+                width: 75%;
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .grid-test{
+                display:grid;
+                place-items: center;
+                width: 170px;
+                height: 170px;
+                background-color: white;
+                font-size: 1.25rem;                
+
+            }
+
+            .grid-test-container :nth-child(9n+1),
+            .grid-test-container :nth-child(9n+2),
+            .grid-test-container :nth-child(9n+3){
+                justify-self: end;
+                background-color: rgb(255, 142, 36);
+            }
+            .grid-test-container :nth-child(9n+4),
+            .grid-test-container :nth-child(9n+5),
+            .grid-test-container :nth-child(9n+6){
+                justify-self: center;
+                background-color: rgb(255, 255, 41);
+            }
+            .grid-test-container :nth-child(9n+7),
+            .grid-test-container :nth-child(9n+8),
+            .grid-test-container :nth-child(9n+9){
+                justify-self: left;
+                background-color: #cdff42;
+            }
+
+            .floatButton{
+                background-color: darksalmon;
+                display:inline-block;
+                position: fixed;
+                margin-left: 2rem;
+                top: 50%;
+                border-radius: 5px;
+            }
+            .button-plus, .button-minus{
+                font-size:2rem;
+                font-family: monospace;
+                padding:.25rem .50rem;
+            }
+
+            @media screen and (min-width:76.25em){
+                .nav-burger-button{
+                    display: none;
+                }
+                .nav-menu{
+                    display:flex;
+                    opacity: 1;
+                    width: fit-content;
+                    position: relative;
+                    background-color: transparent;
+                }
+                
+            }
+        </style>
+    </head>
+    <body>
+ 
+<div class="container">
+    <nav class="nav">
+        <span class="nav-span">Various Links:</span>
+        
+        
+        <div class="nav-burger-container">
+            <button class="nav-burger-button debutton">&#8801</button>
+                <ul class="nav-menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="https://google.com/ncr">Google</a></li>
+                    <li><a href="#">Cats</a></li>
+                </ul>
+        </div>
+
+    </nav>
+    <div class="scrolling">
+        <!-- <img src="coffee.jpg"> -->
+        <h2>Welcome!</h2>
+        <div class="scrolling__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius dolore quo, exercitationem est doloremque vero, aperiam accusantium debitis magni eos sapiente incidunt at ducimus, voluptatum labore! Dolor aliquid minus reprehenderit aut cumque deserunt tempore ea et, iste officiis porro ex aliquam voluptates, culpa optio eveniet beatae! Cupiditate obcaecati voluptas quasi!</div>
+        
+        <div class="floatButton">
+            <button class="button-minus debutton">-</button>
+            <button class="button-plus debutton">+</button>
+        </div>
+        
+        <div class="grid-test-container">
+            <div class="grid-test d1">1</div>
+            <div class="grid-test d2">2</div>
+            <div class="grid-test d3">3</div>
+            <div class="grid-test d4">4</div>
+            <div class="grid-test d5">5</div>
+            <div class="grid-test d6">6</div>
+            <div class="grid-test d7">7</div>
+            <div class="grid-test d8">8</div>
+            <div class="grid-test d9">9</div>    
+        </div>
+    </div>
+</div>
+
+
+<script>
+    //dynamic row adding
+    function gridDivCount(){
+        let divCount= document.getElementsByClassName('grid-test').length;
+        return parseInt(divCount);
+    }
+    function addDiv(){
+        let newDiv=document.createElement('div');
+        newDiv.classList.add('grid-test', `d${parseInt(gridDivCount())+1}`);
+        newDiv.innerText=parseInt(gridDivCount())+1;
+
+        document.querySelector('.grid-test-container').append(newDiv);
+    }
+    //dynamic row removing
+    function removeDiv(){
+        let toBeRemoved=document.getElementsByClassName('grid-test')[gridDivCount()-1];
+        document.querySelector('.grid-test-container').removeChild(toBeRemoved);
+    }
+
+    document.getElementsByClassName('button-plus')[0].addEventListener('click', addDiv);
+    document.getElementsByClassName('button-minus')[0].addEventListener('click', removeDiv);
+
+
+
+</script>
+
+        <!-- <div class="container">
+            <div class="div d1">1</div>
+            <div class="div d2">2</div>
+            <div class="div d3">3</div>
+            <div class="div d4">4</div>
+            <div class="div d5">5</div>
+            <div class="div d6">6</div>
+            <div class="div d7">7</div>
+            <div class="div d8">8</div>
+            <div class="div d9">9</div>
+            <div class="div d10">10</div>
+            <div class="div d11">11</div>
+            <div class="div d12">12</div>
+            <div class="div d13">13</div>
+            <div class="div d14">14</div>
+            <div class="div d15">15</div>
+            <div class="div d16">16</div>
+            <div class="div d17">17</div>
+            <div class="div d18">18</div>
+            <div class="div d19">19</div>
+            <div class="div d20">20</div>
+            <div class="div d21">21</div>
+            <div class="div d22">22</div>
+            <div class="div d23">23</div>
+            <div class="div d24">24</div>
+            <div class="div d25">25</div>
+            <div class="div d26">26</div>
+            <div class="div d27">27</div>
+            <div class="div d28">28</div>
+            <div class="div d29">29</div>
+            <div class="div d30">30</div>
+        </div> -->
+
+
+  
+    </body>
+</html>
